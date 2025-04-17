@@ -1,0 +1,20 @@
+txt = input("Enter the encrypted text: ")
+txt = txt.upper()
+
+abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+res = ''
+shift = 25
+
+for i in range(len(txt)):
+    ch = txt[i]
+    if ch in abc:
+        idx = abc.find(ch)
+        new_idx = (idx - shift) % 26
+        res += abc[new_idx]
+        shift -= 1
+        if shift < 0:
+            shift = 0
+    else:
+        res += ch
+
+print(res)
